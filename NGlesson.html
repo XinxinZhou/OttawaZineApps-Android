@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="NGlesson.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">   <！-- 绑定控制器 as store? store是alias别号-->
+    <div class="product row">
+      <h3>
+          {{store.product.name}}
+        <em class="pull-right"></em>
+      </h3>
+    </div>
+  </body>
+</html>
+
+    <!--http://jpadult.go2av.com/www/2/2015-01/14271.html-->
+    <!-- ng-show  处理控件显示与否-->
+    <!-- ng-hide -->
+    <!-- ng-repeat=“item in array” 类似于forEach  -->
+    <!-- |orderby  等filter
+     <img ng-src="{{product.imgs[0].full}}"/>
+{{ }} 访问angular js 对象。
+ <blockquote> </blockquote> 一个区块
+ng-model 模块相互绑定，比如提交表单，及时反馈
+var app = angular.module('store',['store-products']);  app.js  -> 依赖关系， 大包小(访问者- 添加 - 被访问者). 分割模块->实现模块化管理
+var app = angular.module('store-products',[]);  product.js   
+
+用json文件来存放标准数据， 所以我们需要service.?
+使用Service，需要在关键字之前+$符号， $http Service用来请求Service.
+$http({ method: 'GET', url: '/products.json' });
+38065315
+
