@@ -1,41 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="starter" ng-controller="AppCtrl">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="ionicons-2.0.1/css/ionicons.css" rel="stylesheet" type="text/css" />
-
+    <link href="https://www.google.com/fonts/#UsePlace:use/Collection:Ubuntu+Condensed" rel='stylesheet' type=text/css>
+    <script src="js/ionic.bundle.min.js"></script>
+<!--    <link href="ionicons-2.0.1/css/ionicons.css" rel="stylesheet" type="text/css" />
+-->
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
+    <!-- ionic/angularjs js
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
+ -->
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-    <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- JQUERY SCRIPTS 
+    <script src="assets/js/jquery-1.10.2.js"></script> -->
+    <!-- BOOTSTRAP SCRIPTS 
+     <script src="assets/js/bootstrap.min.js"></script> -->
+    <!-- METISMENU SCRIPTS 
+   <script src="assets/js/jquery.metisMenu.js"></script> -->
     <!-- FIREBASE SCRIPTS-->  
     <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+
       
     <!-- your app's js -->
-    <script src="js/app.js"></script>      
-      
-      
+  <script src="js/app.js"></script>         
   </head>
     
-  <body ng-app="starter" class="platform-android platform-cordova platform-webview">
-    <ion-pane>  <!-- 所有页面内容在ion-pane里编写-->
+  <body class="platform-android platform-cordova platform-webview">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title" id="ottawaZine">OttawaZine</h1>  
+      <button class="button button-icon icon ion-more" ng-click="modal.show()"></button>
+    </ion-header-bar>
+    <ion-nav-view></ion-nav-view>
+
+  <script id="tabs.html" type="text/ng-template">    
+      <ion-tabs class="tabs-icon-top">
+        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>  
+        </ion-tab>       
+        <ion-tab title="Article" icon="ion-coffee" href="#/tab/article">
+          <ion-nav-view name="article-tab"></ion-nav-view>
+        </ion-tab>              
+        <ion-tab title="About" icon="ion-information" href="#/tab/about">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab>
+      </ion-tabs>
+  </script>
+      
+    <script id="home.html" type="text/ng-template">
+      <ion-view title="Home" class="padding">
+        <ion-content ng-Controller="HomeTabCtrl">
+            <div class="row">
+              <div id="articelId" class="col col-top">
+                No.<span ng-bind="articleId"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-center">
+                <img class="col col-center" ng-src="http://pic3.bbzhi.com/jingxuanbizhi/langmanyejingduofenbianlv/jingxuan_jingxuanyitu_212870_1.jpg">
+              </div>    
+            </div>
+            <div class="row">            
+              <div id="articelDate" class="col">
+                <p style="text-align:center">{{Day}}
+                <br>
+                {{dateLeft}}</p>
+              </div>
+              <div class="col col-75">
+                <p id="articleTitle"> Fairmont Chateau Laurier 
+                <br>
+                by {{author}}
+                </p>
+              </div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-33" ></div>
+                <div class="col col-33" ></div>          
+                <div class="col col-33">
+                  <p id="like" style="text-align:center">赞 337432</p>
+                </div>
+            </div> 
+            <div class="row row-bottom">
+              <div class="col col-45"></div>
+              <div class="col col-55">
+                <p style="text-align:right">www.ottawazine.com
+                <br>
+                ottawazine@gmail.com</p>
+              </div>
+            </div> 
+        </ion-content>      
+      </ion-view>
+    </script>
+      
+    <script id="article.html" type="text/ng-template">
+      <ion-view>
+        <ion-content ng-Controller="ArticleTabCtrl">
+            <div id="dateDiv" class="row">
+              <div class="col col-bottom">
+                <p>{{date}}</p>
+              </div>
+              <div class="col col-bottom">
+                <p style="text-align:right">like {{like}}</p>           
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a>{{articleTitle}}</a>
+                <br>
+                <a>by {{author}}</a>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col col-96 col-offset-2">
+                <div ng-bind-html="content"></div>
+              </div>
+            </div>
+        </ion-content>      
+      </ion-view>     
+    </script>
+      
+    <script id="about.html" type="text/ng-template">
+      <ion-view title="About" class="padding">
+        <ion-content>This is about</ion-content>
+      </ion-view>
+    </script>
+    
+    <script id="modal.html" type="text/ng-template">
+      <div class="modal" ng-controller="ModalCtrl">
+         <ion-content>
+             <div class="list">
+                <a class="item item-icon-left">
+                <i class="icon ion-share"></i>
+                Share
+                </a>
+                <a class="item item-icon-left" ng-click="pressLike()">
+                <i class="icon {{headerLikeIcon}}"></i>
+                Like
+                </a>
+                <a class="item item-icon-left" ng-click="modal.hide()">
+                <i class="icon ion-close-circled"></i>
+                Cancel
+                </a>
+             </div>
+         </ion-content>
+      </div>
+    </script>
+      
+      
+
+      <!--
+    <ion-pane>  <!-- 所有页面内容在ion-pane里编写
       <ion-header-bar class="bar-stable">
         <h1 class="title">OttawaZine</h1>  
         <div ></div>  
@@ -46,23 +170,19 @@
          <a class="button icon-left ion-ios-book" href="#">Papers</a>
          <a class="button icon-left ion-social-snapchat" href="about.html">AboutUs</a>
      </div>
-      </ion-footer-bar>
-        
+      </ion-footer-bar>      
       <ion-content>
         <br>
         <div id="messagesDiv" style=" word-break:break-all; word-wrap:break-all;">
-      </ion-content>
-
-
-        
-        
+      </ion-content>     
     </ion-pane>    
+      -->
   </body>
     
     
   <script>
-	  var myDataRef = new Firebase('https://blistering-heat-3955.firebaseio.com/');
-	  myDataRef.child("paper").orderByKey().on('child_added', function(snapshot) {
+/*	  var myDataRef = new Firebase('https://blistering-heat-3955.firebaseio.com/');
+	  myDataRef.child("paper").orderByKey().limitToFirst(1).on('child_added', function(snapshot) {
         var message = snapshot.val();
 		console.log(message,snapshot.key());
 		pullPaper(message.title, message.content);
@@ -72,6 +192,7 @@
         $('<div/>').html(content+"<hr/><br>").prepend(('Title: ' + title+"<hr/>")).appendTo($('#messagesDiv'));
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 	 }; 
+     */
   </script>
     
     
