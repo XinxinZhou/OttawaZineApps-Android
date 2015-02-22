@@ -34,6 +34,7 @@ F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\assets \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\cordova.js \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\cordova_plugins.js \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\css \
+F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\fileFworkspaceGitHubOttawaZineApps-Androidwwwindex.html#tabarticle.URL \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\home.html \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\img \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\index.html \

@@ -17,9 +17,7 @@ angular.module('starter', ['ionic'])
         templateUrl:"tabs.html"
         
     })
-    
    
-    
     .state('tabs.home', {
         url: "/home",
         views: {
@@ -38,29 +36,26 @@ angular.module('starter', ['ionic'])
           }
         }
     })   
-//    .state('tabs.about.home', {
-//    url: "/home",
-//    views: {
-//        'home-tab': {
-//          templateUrl: "home.html",
-//            controller: 'HomeTabCtrl'
-//        }
-//    }
-//    })  
-//    .state('tabs.more',{
-//        url: "/more",
-//        templateUrl: "more.html"
-//    })
-//    
+    
+    .state('tabs.yell', {
+        url: "/yell",
+        views: {
+            'yell-tab': {
+                templateUrl: "yell.html",
+                controller: 'YellTabCtrl'
+            }
+        }
+    })
+    
     .state('tabs.about', {
     url: "/about",
     views: {
         'about-tab': {
           templateUrl: "about.html",
             controller: 'AboutTabCtrl'
+            }
         }
-    }
-    }); 
+    })
   
         $urlRouterProvider.otherwise("/tab/home");
 })
@@ -75,7 +70,8 @@ angular.module('starter', ['ionic'])
       })
     $scope.articleId="";    
     $scope.ableToLike = null;   
-    var myDataRef = new Firebase('https://blistering-heat-3955.firebaseio.com/');       myDataRef.child("paper").orderByKey().limitToFirst(1).once('child_added', function(snapshot) {
+    $scope.myDataRef = new Firebase('https://blistering-heat-3955.firebaseio.com/');       
+        $scope.myDataRef.child("paper").orderByKey().limitToFirst(1).once('child_added', function(snapshot) {
         var message = snapshot.val();
 		console.log(message,snapshot.key());   
         $scope.articleId = - snapshot.key();
@@ -86,12 +82,31 @@ angular.module('starter', ['ionic'])
         $scope.Day = $scope.date.slice(7,10);
         $scope.dateLeft = $scope.date.substr(4,4)+""+$scope.date.slice(11,$scope.date.length);
         $scope.like = message.like;
-        $scope.read = message.read;        
+        $scope.read = message.read;   
+        $scope.authorTitle = message.authorTitle;
+        $scope.authorIcon = message.authorIcons;
         $scope.headerLikeIcon="ion-heart-broken";    
         $scope.likedIds = localStorage.getItem('likedArticleId');
         $scope.likedIdsArray = new Array();
     //  $scope.checkLocalLikedIds = false; 
-        console.log("$scope.likedIds",$scope.likedIds,localStorage.getItem('likedArticleId'));
+        console.log("$scope.likedIds",$scope.likedIds,localStorage.getItem('likedArticleId'));      
+//        $scope.authorTitleToArray = $scope.author.split(";");   
+//        $scope.authorIconToArray = $scope.authorIcon.split(",|");   
+        $scope.authorInfo = {
+        authorTitleToArray: $scope.authorTitle.split("="),
+        authorIconToArray: $scope.authorIcon.split(",|") 
+        };
+        console.log("$scope.authorInfo",$scope.authorInfo.authorIconToArray.length);    
+        $scope.authorInfoCombination = new Array();
+        for(i = 0; i < $scope.authorInfo.authorTitleToArray.length; i++){            $scope.authorInfoCombination.push($scope.authorInfo.authorIconToArray[i]+" "+$scope.authorInfo.authorTitleToArray[i]);
+        }
+        console.log("authorInfo",$scope.authorInfo.authorTitleToArray,$scope.authorInfo.authorIconToArray);
+//        for(i=0;i<$scope.authorTitleToArray.length;i++){
+//            var span = document.createElement('span');
+//            span.innerHTML = $scope.authorIconToArray[i] + $scope.authorTitleToArray[i];
+//            document.getElementById("authorinfo").insertBefore(span,null);
+//        }
+            
         if( typeof $scope.likedIds === 'undefined' || $scope.likedIds == null)
         {          
                //localStorage['likedArticleId'] = $scope.articleId+" ";
@@ -116,20 +131,22 @@ angular.module('starter', ['ionic'])
                 }
                   console.log("...value....",value, ",", $scope.articleId);
               });  
-
-    //          if($scope.checkLocalLikedIds == true ){
-    //            $scope.ableToLike = false;
-    //            $scope.headerLikeIcon="ion-heart";
-    //            console.log("有了", $scope.ableToLike);
-    //          }
-    //          else {
-    //            $scope.ableToLike = true;  
-    //            $scope.headerLikeIcon="ion-heart-broken";
-    //            console.log("还没有了", $scope.ableToLike);
-    //          }
           }
+            
          $scope.$apply(); //刷新变量
-        });         
+        });      
+    
+          $scope.yells = [];
+      $scope.yellId=""; $scope.myDataRef.child("comment").orderByKey().limitToFirst(1).once('child_added', function(snapshot) {
+        var message = snapshot.val();
+        $scope.yellId = -snapshot.key();
+          console.log($scope.yellId,$scope.yellId);
+        for(var i in message){
+          $scope.yells.push(message[i]);
+        }
+        $scope.$apply(); //刷新变量
+        }); 
+    
     })
 
 
@@ -155,7 +172,8 @@ angular.module('starter', ['ionic'])
         $scope.headerLikeIcon = "ion-heart";
         localStorage['likedArticleId'] += ","+$scope.articleId;
         console.log("localStorage['likedArticleId']",localStorage['likedArticleId']);
-        modalLike = false;  
+        modalLike = false;           
+        $scope.myDataRef.child('paper').child(-$scope.articleId).update({like: ++$scope.like});
       }
     $scope.ableToLike = modalLike;                  
     }
@@ -188,18 +206,14 @@ angular.module('starter', ['ionic'])
 //      {          
 //           //localStorage['likedArticleId'] = $scope.articleId+" ";
 //           $scope.ableToLike[$scope.articleId] = true;
-//      }
-//      else 
+//      } else 
 //      {
 //          if(likedIds.split(" ").includes($scope.articleId)){
 //            $scope.ableToLike[$scope.articleId] = false;
-//          }
-//          else {
+//          }  else {
 //            $scope.ableToLike[$scope.articleId] = true;              
 //          }
-//      }
-              
-          
+//      }                     
   /*       
           $scope.likedIds.foreach(function(value){
              if(value == $scope.articleId) {
@@ -221,7 +235,12 @@ angular.module('starter', ['ionic'])
       $scope.image = {src:'http://attachments.gfan.com/forum/attachments2/day_100615/10061516459aa71c9750a2ca99.jpg' }
     })
     
-    .controller('AboutTabCtrl',function($ionicHistory){
+    .controller('YellTabCtrl',function($scope){
+      console.log('yellTabCtrl',"~~!!!!!!!!!!");
+
+    })
+
+    .controller('AboutTabCtrl',function($scope){
       console.log('AboutTabCtrl');
     
        // $ionicHistory.clearCache();

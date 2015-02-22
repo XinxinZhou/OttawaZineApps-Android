@@ -43,16 +43,19 @@
     <ion-nav-view></ion-nav-view>
 
   <script id="tabs.html" type="text/ng-template">    
-      <ion-tabs class="tabs-icon-top">
+      <ion-tabs class="tabs-icon">
         <ion-tab title="Home" icon="ion-home" href="#/tab/home">
           <ion-nav-view name="home-tab"></ion-nav-view>  
         </ion-tab>       
         <ion-tab title="Article" icon="ion-coffee" href="#/tab/article">
           <ion-nav-view name="article-tab"></ion-nav-view>
-        </ion-tab>              
-        <ion-tab title="About" icon="ion-information" href="#/tab/about">
-          <ion-nav-view name="about-tab"></ion-nav-view>
         </ion-tab>
+        <ion-tab title="Yell" icon="ion-bonfire" href="#/tab/yell">
+          <ion-nav-view name="yell-tab"></ion-nav-view>
+        </ion-tab> 
+        <ion-tab title="Setting" icon="ion-gear-a" href="#/tab/about">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab> 
       </ion-tabs>
   </script>
       
@@ -122,7 +125,16 @@
             <br>
             <div class="row">
               <div class="col col-96 col-offset-2">
-                <div ng-bind-html="content"></div>
+                <div id="articlecontent" ng-bind-html="content" ></div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col col-15">             
+                <p id="iconrow" ng-repeat="icon in authorInfo.authorIconToArray" ng-bind-html="icon"></p>           
+              </div>
+              <div class="col col-75">             
+                <p id="authorInfoTitle" ng-repeat="t in authorInfo.authorTitleToArray" ng-bind-html="t"></p>           
               </div>
             </div>
         </ion-content>      
@@ -130,13 +142,51 @@
     </script>
       
     <script id="about.html" type="text/ng-template">
-      <ion-view title="About" class="padding">
-        <ion-content>This is about</ion-content>
+      <ion-view title="Setting" class="padding">
+        <ion-content ng-Controller="AboutTabCtrl">This is about</ion-content>
       </ion-view>
     </script>
     
+    <script id="yell.html" type="text/ng-template">
+    <ion-view title="Yell" class="padding">
+        <ion-content ng-Controller="YellTabCtrl">
+            <div class="row">
+              <div id="articelId" class="col col-top">
+                No.<span ng-bind="yellId"></span>
+              </div>
+            </div>     
+            <div ng-repeat="y in yells">
+              <div class="row">
+                <div id="yellusericon" class="col col-20" ng-bind-html="y.authorIcons"></div>
+                <div id="yelluserinfo" class="col col-80 col-bottom">
+                  <p  ng-bind="y.author"></p>
+                  
+                  <span  ng-bind="y.tellwho"></span>
+                </div>
+              </div>
+                <div class="row" style="border-bottom:1px solid;">
+                  <div id="yellcontent" class="col" ng-bind-html="y.content"></div>
+                </div> 
+            </div>
+            
+            <div class="row row-bottom" style="bottom:0px;">
+              <div class="col col-45"></div>
+              <div class="col col-55">
+                <br>
+                <p style="text-align:right">
+                    把你想说的告诉我们
+                <br>www.ottawazine.com
+                <br>ottawazine@gmail.com
+                </p>
+              </div>
+            </div> 
+        </ion-content>      
+      </ion-view>  
+    </script>
+      
     <script id="modal.html" type="text/ng-template">
-      <div class="modal" ng-controller="ModalCtrl">
+      <div id="modalMore" class="modal" ng-controller="ModalCtrl">
+      <ion-modal-view>
          <ion-content>
              <div class="list">
                 <a class="item item-icon-left">
@@ -153,6 +203,7 @@
                 </a>
              </div>
          </ion-content>
+         </ion-modal-view>
       </div>
     </script>
       
