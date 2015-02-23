@@ -16,4 +16,8 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <feature name="WeChat">
+        <param name="android-package" value="com.wordsbaking.cordova.wechat.WeChat" />
+  </feature>
+  <preference name="wechatappid" value="wx252d35711c1255ab"/>
 </widget>

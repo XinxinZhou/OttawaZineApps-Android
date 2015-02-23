@@ -14,8 +14,7 @@ angular.module('starter', ['ionic'])
     .state('tabs', {
         url: "/tab",
         abstract: true,
-        templateUrl:"tabs.html"
-        
+        templateUrl:"tabs.html"    
     })
    
     .state('tabs.home', {
@@ -61,6 +60,7 @@ angular.module('starter', ['ionic'])
 })
 
     .controller('AppCtrl',function($scope,$ionicModal){
+    
       $ionicModal.fromTemplateUrl('modal.html',function(modal){
         $scope.modal = modal;
 
@@ -68,6 +68,8 @@ angular.module('starter', ['ionic'])
           animation: 'slide-in-up',
           scope: $scope   
       })
+  
+    
     $scope.articleId="";    
     $scope.ableToLike = null;   
     $scope.myDataRef = new Firebase('https://blistering-heat-3955.firebaseio.com/');       
@@ -176,8 +178,17 @@ angular.module('starter', ['ionic'])
         $scope.myDataRef.child('paper').child(-$scope.articleId).update({like: ++$scope.like});
       }
     $scope.ableToLike = modalLike;                  
+    };
+    $scope.sharetoWeChat = function() {
+     
+      WeChat.share('文本', WeChat.Scene.timeline, function () {
+        console.log('分享成功~');
+    }, function (reason) {
+        console.log(reason);
+    });
     }
-
+    
+       
   
 //        if( $scope.ableToLike == true )
 //            $scope.like ++;
@@ -198,6 +209,7 @@ angular.module('starter', ['ionic'])
 
 
     .controller('ArticleTabCtrl',function($scope){
+      console.log("WeChat",WeChat);
       $scope.read++;
       console.log("articleRead", $scope.read);
 //      $scope.likedIds = localStorage.getItem('likedArticleId');
@@ -230,14 +242,13 @@ angular.module('starter', ['ionic'])
  //     console.log(likedIds);
      })
 
-    .controller('HomeTabCtrl',function($scope){
+    .controller('HomeTabCtrl',function($scope){   
       console.log('HomeTabCtrl');
       $scope.image = {src:'http://attachments.gfan.com/forum/attachments2/day_100615/10061516459aa71c9750a2ca99.jpg' }
     })
     
     .controller('YellTabCtrl',function($scope){
       console.log('yellTabCtrl',"~~!!!!!!!!!!");
-
     })
 
     .controller('AboutTabCtrl',function($scope){

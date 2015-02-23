@@ -1,0 +1,305 @@
+      [dex] input: F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\
+ant-build\classes
+      [dex] input: F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\
+CordovaLib\ant-build\classes.jar
+      [dex] input: F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\
+libs\libammsdk.jar
+      [dex] Pre-Dexing F:\workspace\GitHub\OttawaZineApps-Android\platforms\andr
+oid\CordovaLib\ant-build\classes.jar -> classes-01fab9fd3a42fd6cae23b88ac8b19cb4
+.jar
+      [dex] Using Pre-Dexed libammsdk-d4d2bc90a3593110434ccfdec06cb2d0.jar <- F:
+\workspace\GitHub\OttawaZineApps-Android\platforms\android\libs\libammsdk.jar
+      [dex] Found Deleted Target File
+      [dex] Converting compiled files and external libraries into F:\workspace\G
+itHub\OttawaZineApps-Android\platforms\android\ant-build\classes.dex...
+       [dx] Merged dex A (16 defs/15.7KiB) with dex B (209 defs/316.7KiB). Resul
+t is 225 defs/403.9KiB. Took 0.2s
+       [dx] Merged dex A (225 defs/403.9KiB) with dex B (153 defs/178.2KiB). Res
+ult is 378 defs/721.2KiB. Took 0.1s
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: F:\workspace\GitHub\OttawaZineApp
+s-Android\platforms\android\res
+   [crunch] To destination dir: F:\workspace\GitHub\OttawaZineApps-Android\platf
+orms\android\ant-build\res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [aapt] Current build type is different than previous build: forced aapt run
+.
+     [aapt] Creating full resource package...
+     [aapt]     (skipping file '.fetch.json' due to ANDROID_AAPT_IGNORE pattern
+'.*')
+
+-package:
+[apkbuilder] Current build type is different than previous build: forced apkbuil
+der run.
+[apkbuilder] Creating CordovaApp-release-unsigned.apk for release...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] No key.store and key.alias properties found in build.properties.
+     [echo] Please sign F:\workspace\GitHub\OttawaZineApps-Android\platforms\and
+roid\ant-build\CordovaApp-release-unsigned.apk manually
+     [echo] and run zipalign from the Android SDK tools.
+[propertyfile] Updating property file: F:\workspace\GitHub\OttawaZineApps-Androi
+d\platforms\android\ant-build\build.prop
+[propertyfile] Updating property file: F:\workspace\GitHub\OttawaZineApps-Androi
+d\platforms\android\ant-build\build.prop
+[propertyfile] Updating property file: F:\workspace\GitHub\OttawaZineApps-Androi
+d\platforms\android\ant-build\build.prop
+[propertyfile] Updating property file: F:\workspace\GitHub\OttawaZineApps-Androi
+d\platforms\android\ant-build\build.prop
+
+-release-sign:
+
+-post-build:
+     [move] Moving 1 file to F:\workspace\GitHub\OttawaZineApps-Android\platform
+s\android\ant-build
+     [move] Moving 1 file to F:\workspace\GitHub\OttawaZineApps-Android\platform
+s\android\CordovaLib\ant-build
+
+release:
+
+BUILD SUCCESSFUL
+Total time: 18 seconds
+Built the following apk(s):
+    F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\ant-build\Cordo
+vaApp-release-unsigned.apk
+
+F:\workspace\GitHub\OttawaZineApps-Android>keytool -genkey -v -keystore my-relea
+se-key.keystore -alias alias_name -keyalg md5 -keysize 2048 -validity 10000
+输入密钥库口令:
+密钥库口令太短 - 至少必须为 6 个字符
+输入密钥库口令:
+再次输入新口令:
+它们不匹配。请重试
+输入密钥库口令:
+密钥库口令太短 - 至少必须为 6 个字符
+故障太多 - 请稍后再试
+
+F:\workspace\GitHub\OttawaZineApps-Android>keytool -genkey -v -keystore my-relea
+se-key.keystore -alias alias_name -keyalg md5 -keysize 2048 -validity 10000
+输入密钥库口令:
+再次输入新口令:
+keytool 错误: java.lang.Exception: 无法派生签名算法
+java.lang.Exception: 无法派生签名算法
+        at sun.security.tools.keytool.Main.getCompatibleSigAlgName(Main.java:156
+6)
+        at sun.security.tools.keytool.Main.doGenKeyPair(Main.java:1598)
+        at sun.security.tools.keytool.Main.doCommands(Main.java:963)
+        at sun.security.tools.keytool.Main.run(Main.java:340)
+        at sun.security.tools.keytool.Main.main(Main.java:333)
+
+F:\workspace\GitHub\OttawaZineApps-Android>keytool -genkey -v -keystore my-relea
+se-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+输入密钥库口令:
+再次输入新口令:
+您的名字与姓氏是什么?
+  [Unknown]:  xinxinzhou
+您的组织单位名称是什么?
+  [Unknown]:  ottawazine
+您的组织名称是什么?
+  [Unknown]:  ottawazine
+您所在的城市或区域名称是什么?
+  [Unknown]:  ottawa
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  ontario
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  CA
+CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontario, C=CA是否正确?
+  [否]:
+您的名字与姓氏是什么?
+  [xinxinzhou]:
+您的组织单位名称是什么?
+  [ottawazine]:
+您的组织名称是什么?
+  [ottawazine]:
+您所在的城市或区域名称是什么?
+  [ottawa]:
+您所在的省/市/自治区名称是什么?
+  [ontario]:
+该单位的双字母国家/地区代码是什么?
+  [CA]:
+CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontario, C=CA是否正确?
+  [否]:  Y
+
+正在为以下对象生成 2,048 位RSA密钥对和自签名证书 (SHA256withRSA) (有效期为 10,00
+0 天):
+         CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontario, C=CA
+输入 <alias_name> 的密钥口令
+        (如果和密钥库口令相同, 按回车):
+[正在存储my-release-key.keystore]
+
+F:\workspace\GitHub\OttawaZineApps-Android>jarsigner -verbose -sigalg SHA1withRS
+A -digestalg SHA1 -keystore my-release-key.keystore CordovaApp-release-unsigned.
+apk Maplezine
+输入密钥库的密码短语:
+jarsigner: 找不到Maplezine的证书链。Maplezine必须引用包含私有密钥和相应的公共密
+钥证书链的有效密钥库密钥条目。
+
+F:\workspace\GitHub\OttawaZineApps-Android>jarsigner -verbose -sigalg SHA1withRS
+A -digestalg SHA1 -keystore F:\workspace\GitHub\OttawaZineApps-Android\my-releas
+e-key.keystore F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\ant-
+build\CordovaApp-release-unsigned.apk Maplezine
+输入密钥库的密码短语:
+jarsigner: 找不到Maplezine的证书链。Maplezine必须引用包含私有密钥和相应的公共密
+钥证书链的有效密钥库密钥条目。
+
+F:\workspace\GitHub\OttawaZineApps-Android>keytool -genkey -v -keystore my-relea
+se-key.keystore -alias Maplezine -keyalg RSA -keysize 2048 -validity 10000
+输入密钥库口令:
+您的名字与姓氏是什么?
+  [Unknown]:  xinxinzhou
+您的组织单位名称是什么?
+  [Unknown]:  ottawazine
+您的组织名称是什么?
+  [Unknown]:  ottawazine
+您所在的城市或区域名称是什么?
+  [Unknown]:  ottawa
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  ontari
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  ca
+CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontari, C=ca是否正确?
+  [否]:
+您的名字与姓氏是什么?
+  [xinxinzhou]:
+您的组织单位名称是什么?
+  [ottawazine]:
+您的组织名称是什么?
+  [ottawazine]:
+您所在的城市或区域名称是什么?
+  [ottawa]:
+您所在的省/市/自治区名称是什么?
+  [ontari]:  ontario
+该单位的双字母国家/地区代码是什么?
+  [ca]:
+CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontario, C=ca是否正确?
+  [否]:  y
+
+正在为以下对象生成 2,048 位RSA密钥对和自签名证书 (SHA256withRSA) (有效期为 10,00
+0 天):
+         CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontario, C=ca
+输入 <Maplezine> 的密钥口令
+        (如果和密钥库口令相同, 按回车):
+[正在存储my-release-key.keystore]
+
+F:\workspace\GitHub\OttawaZineApps-Android>jarsigner -verbose -sigalg SHA1withRS
+A -digestalg SHA1 -keystore F:\workspace\GitHub\OttawaZineApps-Android\my-releas
+e-key.keystore F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\ant-
+build\CordovaApp-release-unsigned.apk Maplezine
+输入密钥库的密码短语:
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: Keystore was tampered wi
+th, or password was incorrect
+
+F:\workspace\GitHub\OttawaZineApps-Android>jarsigner -verbose -sigalg SHA1withRS
+A -digestalg SHA1 -keystore F:\workspace\GitHub\OttawaZineApps-Android\my-releas
+e-key.keystore F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\ant-
+build\CordovaApp-release-unsigned.apk Maplezine
+输入密钥库的密码短语:
+   正在添加: META-INF/MANIFEST.MF
+   正在添加: META-INF/MAPLEZIN.SF
+   正在添加: META-INF/MAPLEZIN.RSA
+  正在签名: AndroidManifest.xml
+  正在签名: assets/_where-is-www.txt
+  正在签名: assets/www/about.html
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/README.md
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/WXEntryActivity.java
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/WeChat.java
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/libammsdk.jar
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/package.json
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/plugin.xml
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/scripts/android-install.js
+
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/scripts/wp-install.js
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/android/WXEntryActivit
+y.java
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/android/WeChat.java
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/android/libammsdk.jar
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/ios/CDVWeChat.h
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/ios/CDVWeChat.m
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/ios/WXApi.h
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/ios/WXApiObject.h
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/ios/libWeChatSDK.a
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/wp/Google.ProtocolBuff
+ersLite.dll
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/wp/MicroMsgSDK.dll
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/wp/WeChat.cs
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/wp/WeChatCallbackPage.
+xaml
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/src/wp/WeChatCallbackPage.
+xaml.cs
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/wechat.js
+  正在签名: assets/www/com.wordsbaking.cordova.wechat/www/wechat.js
+  正在签名: assets/www/cordova.js
+  正在签名: assets/www/cordova_plugins.js
+  正在签名: assets/www/css/Lobster-Regular.ttf
+  正在签名: assets/www/css/OFL.txt
+  正在签名: assets/www/css/style.css
+  正在签名: assets/www/home.html
+  正在签名: assets/www/img/ionic.png
+  正在签名: assets/www/index.html
+  正在签名: assets/www/js/app.js
+  正在签名: assets/www/js/ionic.bundle.min.js
+  正在签名: assets/www/js/wechat.js
+  正在签名: assets/www/json/articleStatus.json
+  正在签名: assets/www/lib/ionic/css/ionic.css
+  正在签名: assets/www/lib/ionic/css/ionic.min.css
+  正在签名: assets/www/lib/ionic/fonts/ionicons.eot
+  正在签名: assets/www/lib/ionic/fonts/ionicons.svg
+  正在签名: assets/www/lib/ionic/fonts/ionicons.ttf
+  正在签名: assets/www/lib/ionic/fonts/ionicons.woff
+  正在签名: assets/www/lib/ionic/js/angular-ui/angular-ui-router.js
+  正在签名: assets/www/lib/ionic/js/angular-ui/angular-ui-router.min.js
+  正在签名: assets/www/lib/ionic/js/angular/angular-animate.js
+  正在签名: assets/www/lib/ionic/js/angular/angular-animate.min.js
+  正在签名: assets/www/lib/ionic/js/angular/angular-resource.js
+  正在签名: assets/www/lib/ionic/js/angular/angular-resource.min.js
+  正在签名: assets/www/lib/ionic/js/angular/angular-sanitize.js
+  正在签名: assets/www/lib/ionic/js/angular/angular-sanitize.min.js
+  正在签名: assets/www/lib/ionic/js/angular/angular.js
+  正在签名: assets/www/lib/ionic/js/angular/angular.min.js
+  正在签名: assets/www/lib/ionic/js/ionic-angular.js
+  正在签名: assets/www/lib/ionic/js/ionic-angular.min.js
+  正在签名: assets/www/lib/ionic/js/ionic.bundle.js
+  正在签名: assets/www/lib/ionic/js/ionic.bundle.min.js
+  正在签名: assets/www/lib/ionic/js/ionic.js
+  正在签名: assets/www/lib/ionic/js/ionic.min.js
+  正在签名: assets/www/lib/ionic/version.json
+  正在签名: assets/www/lib/libammsdk.jar
+  正在签名: assets/www/plugins/com.ionic.keyboard/www/keyboard.js
+  正在签名: assets/www/plugins/com.wordsbaking.cordova.wechat/www/wechat.js
+  正在签名: assets/www/plugins/org.apache.cordova.device/www/device.js
+  正在签名: res/drawable-hdpi-v4/icon.png
+  正在签名: res/drawable-land-hdpi-v4/screen.png
+  正在签名: res/drawable-land-ldpi-v4/screen.png
+  正在签名: res/drawable-land-mdpi-v4/screen.png
+  正在签名: res/drawable-land-xhdpi-v4/screen.png
+  正在签名: res/drawable-ldpi-v4/icon.png
+  正在签名: res/drawable-mdpi-v4/icon.png
+  正在签名: res/drawable-port-hdpi-v4/screen.png
+  正在签名: res/drawable-port-ldpi-v4/screen.png
+  正在签名: res/drawable-port-mdpi-v4/screen.png
+  正在签名: res/drawable-port-xhdpi-v4/screen.png
+  正在签名: res/drawable-xhdpi-v4/icon.png
+  正在签名: res/drawable/icon.png
+  正在签名: res/xml/config.xml
+  正在签名: resources.arsc
+  正在签名: classes.dex
+  正在签名: android/libammsdk.jar
+jar 已签名。
+
+警告:
+未提供 -tsa 或 -tsacert, 此 jar 没有时间戳。如果没有时间戳, 则在签名者证书的到期
+日期 (2042-07-11) 或以后的任何撤销日期之后, 用户可能无法验证此 jar。
+
+F:\workspace\GitHub\OttawaZineApps-Android>
+
+
+Certificate fingerprints:
+MD5 : 40:40:4F:4B:65:F8:53:E8:4A:C7:D6:79:E8:EB:FF:46
+SHA1: 86:1F:92:95:09:46:90:91:5C:A1:BE:42:DC:06:14:56:A4:CB:42:70

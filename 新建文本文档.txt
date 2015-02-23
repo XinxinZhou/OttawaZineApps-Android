@@ -1,0 +1,6 @@
+ÃÜÔ¿¿ÚÁî:ottawazine
+
+
+CN=xinxinzhou, OU=ottawazine, O=ottawazine, L=ottawa, ST=ontario, C=CA
+
+keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg md5 -keysize 2048 -validity 10000

@@ -1,6 +1,17 @@
 {
     "jscodehints.detectedExclusions": [
         "C:/Users/zxx/todo/gulpfile.js",
-        "C:/Users/zxx/todo/www/js/app.js"
+        "C:/Users/zxx/todo/www/js/app.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/platforms/android/assets/www/lib/ionic/js/angular-ui/angular-ui-router.min.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/platforms/android/assets/www/lib/ionic/js/angular-ui/angular-ui-router.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/www/js/app.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/www/lib/ionic/js/angular-ui/angular-ui-router.min.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/NGlesson.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/gulpfile.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/platforms/android/cordova/lib/device.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/platforms/android/assets/www/js/app.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/platforms/android/assets/www/js/wechat.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/platforms/android/assets/www/cordova_plugins.js",
+        "F:/workspace/GitHub/OttawaZineApps-Android/www/lib/ionic/js/angular-ui/angular-ui-router.js"
     ]
 }

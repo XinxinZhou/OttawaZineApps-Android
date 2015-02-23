@@ -8,6 +8,10 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="WeChat">
+        <param name="android-package" value="com.wordsbaking.cordova.wechat.WeChat" />
+    </feature>
+    <preference name="wechatappid" value="[wx252d35711c1255ab]" />
     <name>todo</name>
     <description>
         An Ionic Framework and Cordova project.
@@ -21,4 +25,5 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackupWebStorage" value="none" />
+    <preference name="wechatappid" value="wx252d35711c1255ab" />
 </widget>
