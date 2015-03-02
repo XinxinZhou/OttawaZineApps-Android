@@ -87,7 +87,8 @@ angular.module('starter', ['ionic'])
         $scope.read = message.read;   
         $scope.authorTitle = message.authorTitle;
         $scope.authorIcon = message.authorIcons;
-        $scope.headerLikeIcon="ion-heart-broken";    
+        $scope.headerLikeIcon="ion-heart-broken";
+        $scope.customHeart = "ion-ios7-heart-outline";
         $scope.likedIds = localStorage.getItem('likedArticleId');
         $scope.likedIdsArray = new Array();
     //  $scope.checkLocalLikedIds = false; 
@@ -114,6 +115,8 @@ angular.module('starter', ['ionic'])
                //localStorage['likedArticleId'] = $scope.articleId+" ";
                $scope.ableToLike = true;
                $scope.headerLikeIcon="ion-heart-broken";
+               //$scope.rateheart = "img/Heart-Shadow-icon.png";
+               $scope.customHeart = "ion-ios7-heart-outline";
                localStorage['likedArticleId'] = "0";
         } else {
               $scope.likedIdsArray =  $scope.likedIds.split(",");
@@ -124,11 +127,14 @@ angular.module('starter', ['ionic'])
                    //$scope.checkLocallikedIds = true;   
                   $scope.ableToLike = false;
                   $scope.headerLikeIcon="ion-heart";
+                  $scope.customHeart = "ion-ios7-heart customHeartStyle";
                   console.log("有了 $scope.ableToLike", $scope.ableToLike);
     //              console.log("equals", $scope.checkLocallikedIds);
                 } else{
                  // $scope.ableToLike = true;  
                   $scope.headerLikeIcon="ion-heart-broken";
+                  //$scope.rateheart = "img/Heart-Shadow-icon.png";
+                  $scope.customHeart = "ion-ios7-heart-outline";
                   console.log("还没有了 $scope.ableToLike", $scope.ableToLike);
                 }
                   console.log("...value....",value, ",", $scope.articleId);
@@ -209,9 +215,39 @@ angular.module('starter', ['ionic'])
 
 
     .controller('ArticleTabCtrl',function($scope){
-      console.log("WeChat",WeChat);
+      
       $scope.read++;
       console.log("articleRead", $scope.read);
+     //$scope.rateheart = "img/Heart-Shadow-icon.png";
+      
+      
+      var followLike = null;
+//    $scope.$watch('ableToLike',function(){
+//        modalLike = $scope.ableToLike;
+//        console.log("modalLike",modalLike);});
+      $scope.$watch('ableToLike', function(){ 
+            followLike = $scope.ableToLike;
+            console.log("Inner-followLike",followLike);
+        });
+      
+    console.log("$scope.ableToLike$scope.ableToLike",$scope.ableToLike);
+    console.log("modalLike",followLike);
+    $scope.followrate = function() { 
+      $scope.customHeart = "ion-ios7-heart customHeartStyle";
+      if(followLike == false) {    
+        console.log("you have rated it");
+        console.log("localStorage['likedArticleId']",localStorage['likedArticleId']);
+      } else {
+        localStorage['likedArticleId'] += ","+$scope.articleId;
+        console.log("localStorage['likedArticleId']",localStorage['likedArticleId']);
+        followLike = false;           
+        $scope.myDataRef.child('paper').child(-$scope.articleId).update({like: ++$scope.like});
+      }
+    $scope.ableToLike = followLike;                  
+    };
+    
+    
+      
 //      $scope.likedIds = localStorage.getItem('likedArticleId');
 //      $scope.ableToLike = new Array();
 //      if( typeof $scope.likedIds === 'undefined')

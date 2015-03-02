@@ -73,6 +73,8 @@ F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\com.word
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\css\Lobster-Regular.ttf \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\css\OFL.txt \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\css\style.css \
+F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\img\Heart-Shadow-icon-full.png \
+F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\img\Heart-Shadow-icon.png \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\img\ionic.png \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\js\app.js \
 F:\workspace\GitHub\OttawaZineApps-Android\platforms\android\assets\www\js\ionic.bundle.min.js \

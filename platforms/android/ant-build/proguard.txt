@@ -1,6 +1,6 @@
-# view AndroidManifest.xml #generated:11
+# view AndroidManifest.xml #generated:6
 -keep class com.ionicframework.todo893892.CordovaApp { <init>(...); }
 
-# view AndroidManifest.xml #generated:17
+# view AndroidManifest.xml #generated:12
 -keep class com.ionicframework.todo893892.wxapi.WXEntryActivity { <init>(...); }
 

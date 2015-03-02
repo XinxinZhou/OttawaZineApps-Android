@@ -126,9 +126,17 @@
             <br>
             <div class="row">
               <div class="col col-96 col-offset-2">
-                <div id="articlecontent" ng-bind-html="content" ></div>
+                <div  ng-bind-html="content" ></div>
               </div>
             </div>
+            <div class="row">
+              <div id="articlecontent" class="col" style="text-align:right;">
+                 <a id="rateHeart" class="button button-clear button-icon-left" ng-click="followrate()">
+                   <i class="icon {{customHeart}}"></i>
+                   {{like}}
+                 </a>
+              </div>
+            </div>  
             <br>
             <div class="row">
               <div class="col col-15">             
@@ -138,6 +146,8 @@
                 <p id="authorInfoTitle" ng-repeat="t in authorInfo.authorTitleToArray" ng-bind-html="t"></p>           
               </div>
             </div>
+             
+
         </ion-content>      
       </ion-view>     
     </script>
@@ -246,7 +256,9 @@
 	 }; 
      */
   </script>
-    
+    <!--
+<a id="rateheart" class="button button-icon icon" ng-click="followrate()" ng-style="{'background-image': 'url('+rateheart+')'}"></a>    
+              <span id="rateheartnum">10000</span>  --> 
     
 </html>
 
